@@ -180,3 +180,6 @@ df.fillna(130,inplace=True)
 
 #Replace Only for specified columns.
 #1 Replace Null values in the "Calories" columns with the number 130.
+
+
+print(df.duplicated())

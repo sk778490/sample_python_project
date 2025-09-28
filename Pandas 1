@@ -1,0 +1,182 @@
+import pandas as pd 
+#x = [2,3,4,5,6,7]
+#var=pd.Series(x)
+#print(var)
+#print(type(var))
+#how to change index 
+#x = [2,3,4,5,6,7]
+#var=pd.Series(x,index=['a','b','c','d'])
+#print(var)
+
+# Now Pandas is import and ready to use.
+import pandas
+mydataset={'cars':["BMW","Volvo","Ford"],'passings':[3,7,2]}
+var=pd.DataFrame(mydataset)
+print(var) 
+
+# Create a aliias with the as keywrord while importing pandas
+import pandas as pd
+mydataset={'cars':["BMW","Volvo","Ford"],'passings':[3,7,2]}
+var=pd.DataFrame(mydataset)
+print(var)
+
+# the version string is stored under __version__ attribute.
+import pandas as pd 
+print(pd.__version__)
+
+# What is a Series in Pandas?
+# A Pandas Series is like a column in a table. It is a one- dimensional array holding data of any type.
+#Create a simple pandas series from a list.
+import pandas as pd 
+a=[1,7,2]
+myvar = pd.Series(a)
+print(myvar)
+#Return the first value of the Series.
+print(myvar[0])
+
+#With the index argument, you can name your own lables.
+import pandas as pd 
+a=[1,7,2]
+myvar = pd.Series(a, index=["a","b","c"])
+print(myvar)
+
+# Return the value of "a".
+print(myvar["a"])
+
+#Create a simple pandas Series from a dictionary.
+import pandas as pd
+calories ={"day1":420,"day2":380,"day3":390}
+myvar = pd.Series(calories)
+print(myvar)
+
+# Create a Series using only data from day1 and day2.
+import pandas as pd
+calories ={"day1":420,"day2":380,"day3":390}
+myvar = pd.Series(calories)
+print(myvar)
+
+# Create a Series using only data from day1 and day2.
+import pandas as pd
+calories = {"day1": 420, "day2": 380, "day3": 390}
+myvar = pd.Series(calories, index = ["day1", "day2"])
+print(myvar)
+
+#Data frames
+# Data sets in pandas are usually multi-dimensional tabbles, called Dataframes.
+# Series is like a column, a dataframe is the whole table.
+# Create a data frame from two Series.
+import pandas as pd
+data ={
+    "calories":[420,380,390],
+    "duration":[50,40,45]
+}
+myvar=pd.DataFrame(data)
+print (myvar)
+print(type(myvar))
+#l=Locate Row 
+#As you can see the result above, the DataFrame is like a table with rows and columns.
+#Pands use the loc attribute to return one or more specified row(s)
+#Refer to the row index to get the value of that row.
+
+print(myvar.loc[0])
+
+# Note : This example returns a pandas Series.
+# Return row 0 and 1.
+#use a list of indexes.
+print(myvar.loc[[0,1]])
+
+# Note: When using [], the result is a pandas Dataframe.
+
+#Named Indexs
+#With the index argument, you can name your own indexes.
+#Examole
+#Add a list of names to give each row a name.
+import pandas as pd
+Data ={
+    "Calories":[420,380,390],
+    "Duration":[50,40,45]}
+Myvar = pd.DataFrame(Data, index = ["d1","d2","D3"])
+print(Myvar)
+print(Myvar.loc["d2"])
+
+#Load files into a DataFrame.
+#if your data sets are stored in a file, pandas can load them into a DataFrame.
+#Pandas can load files of the following formats: CSV, JSON, HTML, SQL,
+
+#Load a comma sparated file (CSV file) into a DataFrame.
+import pandas as pd
+myvar = pd.read_csv('Users/Sanjeetkumar/Downloads/ind_close_all_28022025.csv')
+#print(myvar)
+#print(myvar.head())
+#print(pd.options.display.max_rows)
+#print(myvar.to_string())
+#Tip : Use to_string() to print the entire DataFrame.
+
+#Load. a python Dictionary into a DataFrame.
+
+# Create a simple panas DataFrame.
+import pandas as pd 
+Reservation ={"SN":[1,2,3],"Name":["Anil","Sunil","Kumar"],"Age":[20,21,19],"City":["Delhi","Noida","Bangalore"]}
+#load data into dataframe object.
+Rv=pd.DataFrame(Reservation)
+print(Rv)
+#refer to the row index.
+print(Rv.loc[1])
+#Return row 0 and 1.
+print(Rv.loc[[0,1]])
+
+#Add a List of names to given each row a name.
+import pandas as pd
+Reservation ={"SN":[1,2,3],"Name":["Anil","Sunil","Kumar"],"Age":[20,21,19],"City":["Delhi","Noida","Bangalore"]}
+Rv=pd.DataFrame(Reservation,index=["R1","R2","R3"])
+print(Rv)
+
+#Loacte Names Indexes 
+#Refer to the named index:
+print(Rv.loc["R3"])
+
+#Load a python Dictionary into a DataFrame.
+import pandas as pd
+Data ={"Duration":{"0":60,"1":60,"2":45},"Pulse":{"0":110,"1":117,"2":103},"Maxpulse":{"0":130,"1":145,"2":135},"Calories":{"0":409.1,"1":479.0,"2":340.0}}
+df= pd.DataFrame(Data)
+print(df)
+
+#Get a quic overview by printing the first 10 rows of the dataframe.
+#import pandas as pd
+#df = pd.read_csv('Users/Sanjeetkumar/Downloads/ind_close_all_28022025.csv')
+#print(df.head(10))
+
+# Print the first 5 rows of the DataFrame.
+#import pandas as pd 
+#df = pd.read_csv('Users/Sanjeetkumar/Downloads/ind_close_all_28022025.csv')
+##print(df.head())
+
+# Print the Last 5 rows of the DataFrame.
+##print(df.tail())
+
+# Print information about the Data.
+#print(df.info())
+
+# The result tells us there are 169 rows and 4 columns.
+#print(df.head(169))
+
+#Return a new data frame with no empty cells.
+import pandas as pd 
+#df = pd.read_csv('Users/Sanjeetkumar/Downloads/ind_close_all_28022025.csv')
+#new_df=df.dropna()
+#print(new_df.to_string())
+
+#Dropna - by default, the dropna() method returns a new dataframe, and will not change the original.
+#if you want ot change the original dataframe, use the inplace=True argument.
+
+# Remove all rows with Null values.
+#df.dropna(inplace=True)
+#print(df.to_string())
+
+#Replace Null values with the number 130.
+#import pandas as pd 
+df = pd.read_csv('Users/sanjeetkumar/Documents/hoteldata.csv')
+df.fillna(130,inplace=True)
+
+#Replace Only for specified columns.
+#1 Replace Null values in the "Calories" columns with the number 130.

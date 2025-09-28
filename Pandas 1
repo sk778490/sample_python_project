@@ -183,3 +183,5 @@ df.fillna(130,inplace=True)
 
 
 print(df.duplicated())
+
+df.dropna(subset=['Date'], inplace = True)
